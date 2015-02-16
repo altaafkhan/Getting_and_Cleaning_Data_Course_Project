@@ -1,5 +1,15 @@
-## Script for course project associated with Getting and Cleaning Data offered by John Hopkins Bloomberg School of Public Health
+## Script for course project associated with Getting and Cleaning Data offered by John Hopkins University - Bloomberg School of Public Health
 
+## create a working data directory if it does not already exists
+if (!file.exists("data")) {
+   dir.create("data")
+}
+
+## Dowload data set and save it to working data directory
+## Source https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+download.file(fileUrl, destfile = "./data/getdata_projectfiles_UCI_HAR_Dataset.zip")
+dateDownloaded <- date()
 
 ## 1. Merges the training and the test sets to create one data set.
 
