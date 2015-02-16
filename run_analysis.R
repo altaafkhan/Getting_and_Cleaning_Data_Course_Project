@@ -11,6 +11,11 @@ fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%2
 download.file(fileUrl, destfile = "./data/getdata_projectfiles_UCI_HAR_Dataset.zip")
 dateDownloaded <- date()
 
+## Unzip data
+unzip("./data/getdata_projectfiles_UCI_HAR_Dataset.zip", files = NULL, list = FALSE, overwrite = TRUE,
+      junkpaths = FALSE, exdir = "./data", unzip = "internal",
+      setTimes = FALSE)
+
 ## 1. Merges the training and the test sets to create one data set.
 
 
