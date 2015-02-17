@@ -21,11 +21,9 @@ temp1 <- read.table("./data/UCI HAR Dataset/train/X_train.txt")
 temp2 <- read.table("./data/UCI HAR Dataset/test/X_test.txt")
 X <- rbind(temp1, temp2)
 
-
 temp1 <- read.table("./data/UCI HAR Dataset/train/subject_train.txt")
 temp2 <- read.table("./data/UCI HAR Dataset/test/subject_test.txt")
 S <- rbind(temp1, temp2)
-
 
 temp1 <- read.table("./data/UCI HAR Dataset/train/y_train.txt")
 temp2 <- read.table("./data/UCI HAR Dataset/test/y_test.txt")
@@ -39,9 +37,11 @@ names(X) <- features[required_features_indices, 2]
 names(X) <- gsub("\\(|\\)", "", names(X))
 names(X) <- tolower(names(X))
 
-
 ## 3. Uses descriptive activity names to name the activities in the data set
-
+activities <- read.table("./data/UCI HAR Dataset/activity_labels.txt")
+activities[, 2] = gsub("_", "", tolower(as.character(activities[, 2])))
+Y[,1] = activities[Y[,1], 2]
+names(Y) <- "activity"
 
 ## 4. Appropriately labels the data set with descriptive variable names. 
 
