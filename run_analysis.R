@@ -32,6 +32,12 @@ temp2 <- read.table("./data/UCI HAR Dataset/test/y_test.txt")
 Y <- rbind(temp1, temp2)
 
 ## 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
+features <- read.table("./data/UCI HAR Dataset/features.txt")
+required_features_indices <- grep("-mean\\(\\)|-std\\(\\)", features[, 2])
+X <- X[, required_features_indices]
+names(X) <- features[required_features_indices, 2]
+names(X) <- gsub("\\(|\\)", "", names(X))
+names(X) <- tolower(names(X))
 
 
 ## 3. Uses descriptive activity names to name the activities in the data set
