@@ -49,4 +49,17 @@ cleaned <- cbind(S, Y, X)
 write.table(cleaned, "./data/clean_merged_data.txt")
 
 ## From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-
+uniqueVolunteers = unique(S)[,1]
+numVolunteers = length(unique(S)[,1])
+numActivities = length(activities[,1])
+numCols = dim(cleaned)[2]
+result = cleaned[1:(numVolunteers*numActivities), ]
+row = 1
+for (s in 1:numVolunteers) {
+  for (a in 1:numActivities) {
+    result[row, 1] = uniqueVolunteers[s]
+    result[row, 2] = activities[a, 2]
+    tmp <- cleaned[cleaned$volunteer==s & cleaned$activity==activities[a, 2], ]
+    result[row, 3:numCols] <- colMeans(tmp[, 3:numCols])
+    row = row+1
+  }
