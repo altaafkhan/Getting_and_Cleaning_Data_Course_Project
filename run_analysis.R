@@ -48,7 +48,7 @@ names(S) <- "volunteer"
 cleaned <- cbind(S, Y, X)
 write.table(cleaned, "./data/clean_merged_data.txt")
 
-## From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+## From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each volunteer.
 uniqueVolunteers = unique(S)[,1]
 numVolunteers = length(unique(S)[,1])
 numActivities = length(activities[,1])
