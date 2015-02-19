@@ -63,3 +63,5 @@ for (s in 1:numVolunteers) {
     result[row, 3:numCols] <- colMeans(tmp[, 3:numCols])
     row = row+1
   }
+}
+write.table(result, "./data/data_set_with_the_averages.txt")
