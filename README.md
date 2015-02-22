@@ -7,3 +7,4 @@ One of the most exciting areas in all of data science right now is wearable comp
 This repository for Getting and Cleaning Data course project contains the following:  
 1. run_analysis.R - script for getting and cleaning the data file  
 2. CodeBook.md - outlining any transformations or work performed to clean up the data  
+3. data folder containing input and output data files
